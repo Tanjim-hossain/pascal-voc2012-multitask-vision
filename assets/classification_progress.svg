@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="360" viewBox="0 0 1000 360" role="img" aria-labelledby="title desc">
+  <title id="title">Classification model progression</title>
+  <desc id="desc">PR-AUC improves from high capacity baseline to regularised CNN and frozen Xception.</desc>
+  <rect width="1000" height="360" rx="20" fill="#ffffff"/>
+  <text x="50" y="50" fill="#24292f" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="700">Classification · internal-validation PR-AUC</text>
+  <line x1="110" y1="290" x2="940" y2="290" stroke="#d0d7de" stroke-width="2"/>
+  <g font-family="Arial,Helvetica,sans-serif" font-size="16" fill="#57606a">
+    <text x="130" y="322">Baseline</text><text x="410" y="322">Regularised CNN</text><text x="715" y="322">Frozen Xception</text>
+  </g>
+  <rect x="145" y="211" width="130" height="79" rx="8" fill="#8c959f"/>
+  <rect x="445" y="170" width="130" height="120" rx="8" fill="#2da44e"/>
+  <rect x="745" y="49" width="130" height="241" rx="8" fill="#0969da"/>
+  <g font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" fill="#24292f">
+    <text x="166" y="198">0.2626</text><text x="466" y="157">0.4004</text><text x="766" y="36">0.8049</text>
+  </g>
+  <text x="50" y="344" fill="#57606a" font-family="Arial,Helvetica,sans-serif" font-size="14">Selected frozen model: final holdout PR-AUC 0.8144 · ROC-AUC 0.9547</text>
+</svg>

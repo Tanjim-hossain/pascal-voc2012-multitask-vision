@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="340" viewBox="0 0 1000 340" role="img" aria-labelledby="title desc">
+  <title id="title">Segmentation baseline versus U-Net</title>
+  <desc id="desc">U-Net improves foreground IoU from 0.46599 to 0.51003 on internal validation.</desc>
+  <rect width="1000" height="340" rx="20" fill="#ffffff"/>
+  <text x="50" y="50" fill="#24292f" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="700">Segmentation · foreground IoU</text>
+  <text x="50" y="92" fill="#57606a" font-family="Arial,Helvetica,sans-serif" font-size="17">Internal validation comparison</text>
+  <rect x="120" y="145" width="600" height="42" rx="9" fill="#d0d7de"/>
+  <rect x="120" y="145" width="466" height="42" rx="9" fill="#8c959f"/>
+  <text x="745" y="174" fill="#24292f" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700">0.4660</text>
+  <text x="120" y="132" fill="#57606a" font-family="Arial,Helvetica,sans-serif" font-size="16">Encoder-decoder baseline</text>
+  <rect x="120" y="235" width="600" height="42" rx="9" fill="#d0d7de"/>
+  <rect x="120" y="235" width="510" height="42" rx="9" fill="#8250df"/>
+  <text x="745" y="264" fill="#24292f" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700">0.5100</text>
+  <text x="120" y="222" fill="#57606a" font-family="Arial,Helvetica,sans-serif" font-size="16">U-Net with skip connections</text>
+  <text x="50" y="320" fill="#2da44e" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700">+0.0440 absolute IoU · final holdout IoU 0.5101</text>
+</svg>
