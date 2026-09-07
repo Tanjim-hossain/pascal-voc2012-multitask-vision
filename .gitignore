@@ -1,0 +1,27 @@
+# PASCAL VOC data and archives
+VOCdevkit/
+data/
+*.tar
+*.tar.gz
+
+# Trained models and generated outputs
+outputs/
+checkpoints/
+models/
+*.keras
+*.h5
+*.weights.h5
+
+# Python / notebook artefacts
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.venv/
+venv/
+.env
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
