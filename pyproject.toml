@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "voc-multitask"
+version = "0.1.0"
+description = "Reusable components for multi-task computer vision on PASCAL VOC2012"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "Tanjim Hossain"}]
+dependencies = ["numpy>=2.0,<3"]
+
+[project.optional-dependencies]
+full = [
+  "tensorflow==2.20.0",
+  "keras==3.13.2",
+  "pandas>=2.2,<3",
+  "scikit-learn>=1.5,<2",
+  "matplotlib>=3.9,<4",
+  "Pillow>=10,<12",
+]
+test = ["pytest>=8,<9"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
