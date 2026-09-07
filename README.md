@@ -115,7 +115,7 @@ Key safeguards:
     └── quality.yml
 ```
 
-## Reproducing the notebook
+## Running the walkthrough
 
 ### 1. Clone and create an environment
 
@@ -127,9 +127,9 @@ source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 2. Download PASCAL VOC2012
+### 2. PASCAL VOC2012 layout
 
-Download and extract the official VOC2012 train/validation archive so that the directory contains:
+For full experiment reproduction, extract VOC2012 so that the directory contains:
 
 ```text
 VOCdevkit/VOC2012/
@@ -139,21 +139,15 @@ VOCdevkit/VOC2012/
 └── SegmentationClass/
 ```
 
-Then either place `VOCdevkit/` in the repository root or set:
+The original experiments were executed on Kaggle with **two NVIDIA Tesla T4 GPUs**, TensorFlow **2.20.0**, Keras **3.13.2**, and Python **3.12.13**.
 
-```bash
-export VOC_ROOT=/absolute/path/to/VOCdevkit/VOC2012
-```
-
-The notebook also detects VOC2012 automatically when run inside Kaggle.
-
-### 3. Launch the notebook
+### 3. Launch the portfolio walkthrough
 
 ```bash
 jupyter notebook notebooks/project_walkthrough.ipynb
 ```
 
-Full retraining is GPU-intensive. The original experiments were executed on Kaggle with **two NVIDIA Tesla T4 GPUs**, TensorFlow **2.20.0**, Keras **3.13.2**, and Python **3.12.13**.
+The public notebook is intentionally compact: it exposes the experimental protocol, locked results, metric checks, and selected model builders without shipping the PASCAL dataset, trained checkpoints, or large academic execution logs.
 
 ## Technical stack
 
@@ -170,7 +164,7 @@ Full retraining is GPU-intensive. The original experiments were executed on Kagg
 
 ## Technical report
 
-A recruiter-friendly methodology and results record is available in [`docs/technical_report.md`](docs/technical_report.md). The notebook contains the full preprocessing, model definitions, training/evaluation logic, and preserved experimental protocol.
+A recruiter-friendly methodology and results record is available in [`docs/technical_report.md`](docs/technical_report.md). The original academic run and full executed submission are retained separately; the public repository focuses on readable, reusable code and an auditable summary of the locked experiment.
 
 ## Author
 
