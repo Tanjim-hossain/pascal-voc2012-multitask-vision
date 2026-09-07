@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">PASCAL VOC2012 multi-task computer vision overview</title>
+  <desc id="desc">Three cards summarize classification, segmentation, and object detection results.</desc>
+  <rect width="1200" height="430" rx="24" fill="#0d1117"/>
+  <text x="60" y="64" fill="#f0f6fc" font-family="Arial,Helvetica,sans-serif" font-size="34" font-weight="700">Multi-task Computer Vision on PASCAL VOC2012</text>
+  <text x="60" y="102" fill="#8b949e" font-family="Arial,Helvetica,sans-serif" font-size="18">One benchmark · three vision tasks · leakage-safe model selection</text>
+
+  <g transform="translate(50,145)">
+    <rect width="340" height="230" rx="18" fill="#161b22" stroke="#30363d"/>
+    <text x="28" y="44" fill="#58a6ff" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700">01 · Classification</text>
+    <text x="28" y="84" fill="#f0f6fc" font-family="Arial,Helvetica,sans-serif" font-size="42" font-weight="700">0.8144</text>
+    <text x="28" y="112" fill="#8b949e" font-family="Arial,Helvetica,sans-serif" font-size="16">PR-AUC · final holdout</text>
+    <text x="28" y="151" fill="#c9d1d9" font-family="Arial,Helvetica,sans-serif" font-size="17">Frozen ImageNet Xception</text>
+    <text x="28" y="180" fill="#c9d1d9" font-family="Arial,Helvetica,sans-serif" font-size="17">ROC-AUC 0.9547 · Micro-F1 0.7549</text>
+    <text x="28" y="210" fill="#7ee787" font-family="Arial,Helvetica,sans-serif" font-size="15">Transfer learning selected</text>
+  </g>
+
+  <g transform="translate(430,145)">
+    <rect width="340" height="230" rx="18" fill="#161b22" stroke="#30363d"/>
+    <text x="28" y="44" fill="#a371f7" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700">02 · Segmentation</text>
+    <text x="28" y="84" fill="#f0f6fc" font-family="Arial,Helvetica,sans-serif" font-size="42" font-weight="700">0.5101</text>
+    <text x="28" y="112" fill="#8b949e" font-family="Arial,Helvetica,sans-serif" font-size="16">Foreground IoU · final holdout</text>
+    <text x="28" y="151" fill="#c9d1d9" font-family="Arial,Helvetica,sans-serif" font-size="17">3-level U-Net + skip connections</text>
+    <text x="28" y="180" fill="#c9d1d9" font-family="Arial,Helvetica,sans-serif" font-size="17">Dice 0.6756 · Recall 0.7314</text>
+    <text x="28" y="210" fill="#7ee787" font-family="Arial,Helvetica,sans-serif" font-size="15">+0.0440 IoU vs baseline</text>
+  </g>
+
+  <g transform="translate(810,145)">
+    <rect width="340" height="230" rx="18" fill="#161b22" stroke="#30363d"/>
+    <text x="28" y="44" fill="#f0883e" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700">03 · Detection</text>
+    <text x="28" y="84" fill="#f0f6fc" font-family="Arial,Helvetica,sans-serif" font-size="42" font-weight="700">0.1900</text>
+    <text x="28" y="112" fill="#8b949e" font-family="Arial,Helvetica,sans-serif" font-size="16">mAP@0.50 · final holdout</text>
+    <text x="28" y="151" fill="#c9d1d9" font-family="Arial,Helvetica,sans-serif" font-size="17">Xception-backed YOLO-style head</text>
+    <text x="28" y="180" fill="#c9d1d9" font-family="Arial,Helvetica,sans-serif" font-size="17">8×8 grid · 2 slots · class-aware NMS</text>
+    <text x="28" y="210" fill="#d29922" font-family="Arial,Helvetica,sans-serif" font-size="15">Failure modes reported explicitly</text>
+  </g>
+</svg>
