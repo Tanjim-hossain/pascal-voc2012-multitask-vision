@@ -6,6 +6,17 @@ Developed as an MSc Artificial Neural Networks & Deep Learning project, this rep
 
 ![Project overview](assets/project_overview.svg)
 
+## Project entry points
+
+| Resource | Purpose |
+|---|---|
+| [`notebooks/full_experiment.ipynb`](notebooks/full_experiment.ipynb) | Complete executed experiment: data audits, model development, training history, final-holdout evaluation, and qualitative predictions for all three tasks |
+| [`notebooks/project_walkthrough.ipynb`](notebooks/project_walkthrough.ipynb) | Compact walkthrough of the locked protocol, selected architectures, and headline results |
+| [`src/voc_multitask/`](src/voc_multitask/) | Reusable data preparation, model-building, and evaluation utilities |
+| [`docs/technical_report.md`](docs/technical_report.md) | Concise methodology, comparisons, validity safeguards, limitations, and results record |
+
+The full notebook preserves the original end-to-end analysis and executed outputs. The smaller walkthrough and `src/` package provide faster entry points for code review and reuse.
+
 ## Headline results
 
 | Task | Selected model | Final holdout result |
@@ -40,7 +51,7 @@ Transfer learning then produced the strongest classification model. A frozen Ima
 
 ![Classification model progression](assets/classification_progress.svg)
 
-Fine-tuning the final Xception block increased trainable capacity without improving the predeclared selection metric, so the simpler frozen model was retained.
+Fine-tuning the final Xception block increased trainable capacity without improving the predeclared selection metric, so the simpler frozen model was retained. Class-wise AP/ROC-AUC plots and deterministic final-holdout prediction examples are preserved in the [full experiment notebook](notebooks/full_experiment.ipynb).
 
 ## 2. Binary semantic segmentation
 
@@ -50,7 +61,7 @@ A baseline encoder-decoder was compared with a parameter-matched U-Net. Skip con
 
 ![Segmentation model progression](assets/segmentation_progress.svg)
 
-The per-image results show substantial heterogeneity: large objects are generally captured well, while thin structures, boundaries, and nearby foreground regions remain difficult at 128×128 resolution.
+The per-image results show substantial heterogeneity: large objects are generally captured well, while thin structures, boundaries, and nearby foreground regions remain difficult at 128×128 resolution. The [full experiment notebook](notebooks/full_experiment.ipynb) includes the per-image IoU distribution together with source images, ground-truth masks, probability maps, thresholded predictions, and boundary overlays.
 
 ## 3. Object detection
 
@@ -68,7 +79,7 @@ The best model was selected directly by internal-validation **mAP@0.50**, not by
 
 ![Detection model-selection summary](assets/detection_summary.svg)
 
-Objectness recall was much higher than precision, indicating a high false-positive burden. The main limitations were the coarse grid, small-object localisation, crowded scenes, and the limited detector head rather than the Xception feature extractor alone.
+Objectness recall was much higher than precision, indicating a high false-positive burden. The main limitations were the coarse grid, small-object localisation, crowded scenes, and the limited detector head rather than the Xception feature extractor alone. Per-class AP comparisons and red-ground-truth/green-prediction examples are preserved in the [full experiment notebook](notebooks/full_experiment.ipynb).
 
 ## Experimental protocol
 
@@ -96,10 +107,12 @@ Key safeguards:
 ├── requirements.txt
 ├── pyproject.toml
 ├── notebooks/
+│   ├── full_experiment.ipynb
 │   └── project_walkthrough.ipynb
 ├── src/
 │   └── voc_multitask/
 │       ├── __init__.py
+│       ├── data.py
 │       ├── metrics.py
 │       └── models.py
 ├── assets/
@@ -110,12 +123,13 @@ Key safeguards:
 ├── docs/
 │   └── technical_report.md
 ├── tests/
+│   ├── test_data.py
 │   └── test_metrics.py
 └── .github/workflows/
     └── quality.yml
 ```
 
-## Running the walkthrough
+## Running the project
 
 ### 1. Clone and create an environment
 
@@ -141,13 +155,21 @@ VOCdevkit/VOC2012/
 
 The original experiments were executed on Kaggle with **two NVIDIA Tesla T4 GPUs**, TensorFlow **2.20.0**, Keras **3.13.2**, and Python **3.12.13**.
 
-### 3. Launch the experiment walkthrough
+### 3. Choose a notebook
+
+For the compact code/results walkthrough:
 
 ```bash
 jupyter notebook notebooks/project_walkthrough.ipynb
 ```
 
-The walkthrough notebook exposes the experimental protocol, locked results, metric checks, and selected model builders without shipping the PASCAL dataset, trained checkpoints, or large execution logs.
+For the complete preserved experiment:
+
+```bash
+jupyter notebook notebooks/full_experiment.ipynb
+```
+
+Full retraining is GPU-intensive. The complete notebook is primarily an auditable record of the executed experiment; its rendered outputs can be reviewed without rerunning the training cells.
 
 ## Technical stack
 
@@ -164,7 +186,7 @@ The walkthrough notebook exposes the experimental protocol, locked results, metr
 
 ## Technical report
 
-A concise methodology and results record is available in [`docs/technical_report.md`](docs/technical_report.md). The original academic run and full executed submission are retained separately; this repository focuses on readable, reusable code and an auditable summary of the locked experiment.
+A concise methodology and results record is available in [`docs/technical_report.md`](docs/technical_report.md). The complete executed analysis is available in [`notebooks/full_experiment.ipynb`](notebooks/full_experiment.ipynb), while reusable components are separated under [`src/voc_multitask/`](src/voc_multitask/).
 
 ## Author
 
