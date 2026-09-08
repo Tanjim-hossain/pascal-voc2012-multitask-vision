@@ -19,6 +19,7 @@ full = [
   "scikit-learn>=1.5,<2",
   "matplotlib>=3.9,<4",
   "Pillow>=10,<12",
+  "jupyterlab>=4,<5",
 ]
 test = ["pytest>=8,<9"]
 
