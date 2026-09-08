@@ -5,3 +5,4 @@ pandas>=2.2,<3
 scikit-learn>=1.5,<2
 matplotlib>=3.9,<4
 Pillow>=10,<12
+jupyterlab>=4,<5
