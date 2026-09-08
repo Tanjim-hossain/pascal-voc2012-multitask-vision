@@ -1,8 +1,8 @@
 # Reports
 
-The repository uses two complementary forms of project documentation:
+This repository keeps two complementary forms of project documentation:
 
-- [`../docs/technical_report.md`](../docs/technical_report.md) - concise technical summary designed for fast review of methodology, model selection, results, safeguards, and limitations.
-- `academic_project_report.pdf` - the original 23-page academic project report, preserved as submitted when present in this directory.
+- [`../docs/technical_report.md`](../docs/technical_report.md) — concise technical summary of methodology, model selection, results, safeguards, and limitations.
+- [`academic_project_report.pdf`](academic_project_report.pdf) — original 23-page academic project report preserved as the archival record of the submitted work.
 
-The academic report is intentionally not rewritten into a second public-facing narrative. The README and technical report provide the concise overview; the PDF remains the archival record of the submitted work.
+The academic report is intentionally kept separate from the shorter GitHub narrative. For the complete executed analysis, including training history and qualitative outputs, see [`../notebooks/full_experiment.ipynb`](../notebooks/full_experiment.ipynb).
