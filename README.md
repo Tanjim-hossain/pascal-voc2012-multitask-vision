@@ -1,5 +1,7 @@
 # Multi-task Computer Vision on PASCAL VOC2012
 
+[![quality](https://github.com/Tanjim-hossain/pascal-voc2012-multitask-vision/actions/workflows/quality.yml/badge.svg)](https://github.com/Tanjim-hossain/pascal-voc2012-multitask-vision/actions/workflows/quality.yml)
+
 End-to-end deep learning experiments for **multi-label image classification**, **binary semantic segmentation**, and **20-class object detection** on PASCAL VOC2012 using TensorFlow/Keras.
 
 Developed as an MSc Artificial Neural Networks & Deep Learning project, this repository emphasizes not only model performance but also **controlled experimentation, leakage-safe model selection, reproducibility, and failure analysis**.
@@ -14,6 +16,8 @@ Developed as an MSc Artificial Neural Networks & Deep Learning project, this rep
 | [`notebooks/project_walkthrough.ipynb`](notebooks/project_walkthrough.ipynb) | Compact walkthrough of the locked protocol, selected architectures, and headline results |
 | [`src/voc_multitask/`](src/voc_multitask/) | Reusable data preparation, model-building, detection, and evaluation utilities |
 | [`docs/technical_report.md`](docs/technical_report.md) | Concise methodology, comparisons, validity safeguards, limitations, and results record |
+| [`docs/reproducibility.md`](docs/reproducibility.md) | Recorded software/hardware environment, locked thresholds, split policy, and reproduction notes |
+| [`reports/`](reports/) | Archive location for the original academic project report |
 
 The full notebook preserves the original end-to-end analysis and executed outputs. The smaller walkthrough and `src/` package provide faster entry points for code review and reuse.
 
@@ -106,6 +110,8 @@ Key safeguards:
 ```text
 .
 ├── README.md
+├── CITATION.cff
+├── NOTICE.md
 ├── requirements.txt
 ├── pyproject.toml
 ├── notebooks/
@@ -124,7 +130,10 @@ Key safeguards:
 │   ├── segmentation_progress.svg
 │   └── detection_summary.svg
 ├── docs/
-│   └── technical_report.md
+│   ├── technical_report.md
+│   └── reproducibility.md
+├── reports/
+│   └── README.md
 ├── tests/
 │   ├── test_data.py
 │   ├── test_detection.py
@@ -142,6 +151,7 @@ git clone https://github.com/Tanjim-hossain/pascal-voc2012-multitask-vision.git
 cd pascal-voc2012-multitask-vision
 python -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
+python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
@@ -157,23 +167,33 @@ VOCdevkit/VOC2012/
 └── SegmentationClass/
 ```
 
-The original experiments were executed on Kaggle with **two NVIDIA Tesla T4 GPUs**, TensorFlow **2.20.0**, Keras **3.13.2**, and Python **3.12.13**.
+Alternatively, set `VOC_ROOT` to the extracted `VOC2012` directory. The raw dataset is not included in this repository; see [`NOTICE.md`](NOTICE.md) for attribution and repository scope.
+
+The original experiments were executed on Kaggle with **two NVIDIA Tesla T4 GPUs**, TensorFlow **2.20.0**, Keras **3.13.2**, and Python **3.12.13**. The complete recorded environment and locked settings are in [`docs/reproducibility.md`](docs/reproducibility.md).
 
 ### 3. Choose a notebook
 
-For the compact code/results walkthrough:
+Launch JupyterLab:
 
 ```bash
-jupyter notebook notebooks/project_walkthrough.ipynb
+jupyter lab
 ```
 
-For the complete preserved experiment:
+Then open:
 
-```bash
-jupyter notebook notebooks/full_experiment.ipynb
-```
+- `notebooks/project_walkthrough.ipynb` for a compact code/results walkthrough;
+- `notebooks/full_experiment.ipynb` for the complete preserved experiment.
 
 Full retraining is GPU-intensive. The complete notebook is primarily an auditable record of the executed experiment; its rendered outputs can be reviewed without rerunning the training cells.
+
+## Testing the reusable package
+
+```bash
+pip install -e ".[test]"
+pytest -q
+```
+
+GitHub Actions runs the lightweight source compilation and unit-test suite on pushes and pull requests.
 
 ## Technical stack
 
@@ -188,9 +208,15 @@ Full retraining is GPU-intensive. The complete notebook is primarily an auditabl
 - add geometric box augmentation and focal-style objectness loss for detection
 - calibrate detector proposal scores while retaining the locked-holdout protocol
 
-## Technical report
+## Documentation and citation
 
-A concise methodology and results record is available in [`docs/technical_report.md`](docs/technical_report.md). The complete executed analysis is available in [`notebooks/full_experiment.ipynb`](notebooks/full_experiment.ipynb), while reusable components are separated under [`src/voc_multitask/`](src/voc_multitask/).
+- Technical summary: [`docs/technical_report.md`](docs/technical_report.md)
+- Reproducibility record: [`docs/reproducibility.md`](docs/reproducibility.md)
+- Academic report archive: [`reports/`](reports/)
+- Dataset/project notice: [`NOTICE.md`](NOTICE.md)
+- Citation metadata: [`CITATION.cff`](CITATION.cff)
+
+The complete executed analysis is available in [`notebooks/full_experiment.ipynb`](notebooks/full_experiment.ipynb), while reusable components are separated under [`src/voc_multitask/`](src/voc_multitask/).
 
 ## Author
 
