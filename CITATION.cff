@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use or reference this repository, please cite it using the metadata below."
+title: "Multi-task Computer Vision on PASCAL VOC2012"
+type: software
+authors:
+  - family-names: Hossain
+    given-names: Tanjim
+year: 2026
+url: "https://github.com/Tanjim-hossain/pascal-voc2012-multitask-vision"
+repository-code: "https://github.com/Tanjim-hossain/pascal-voc2012-multitask-vision"
+abstract: >-
+  TensorFlow/Keras experiments and reusable utilities for multi-label image
+  classification, binary semantic segmentation, and object detection on
+  PASCAL VOC2012, with locked holdout evaluation and documented failure analysis.
+keywords:
+  - computer vision
+  - deep learning
+  - PASCAL VOC2012
+  - image classification
+  - semantic segmentation
+  - object detection
+  - TensorFlow
+  - Keras
