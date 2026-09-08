@@ -17,7 +17,7 @@ Developed as an MSc Artificial Neural Networks & Deep Learning project, this rep
 | [`src/voc_multitask/`](src/voc_multitask/) | Reusable data preparation, model-building, detection, and evaluation utilities |
 | [`docs/technical_report.md`](docs/technical_report.md) | Concise methodology, comparisons, validity safeguards, limitations, and results record |
 | [`docs/reproducibility.md`](docs/reproducibility.md) | Recorded software/hardware environment, locked thresholds, split policy, and reproduction notes |
-| [`reports/`](reports/) | Archive location for the original academic project report |
+| [`reports/academic_project_report.pdf`](reports/academic_project_report.pdf) | Original 23-page academic project report |
 
 The full notebook preserves the original end-to-end analysis and executed outputs. The smaller walkthrough and `src/` package provide faster entry points for code review and reuse.
 
@@ -55,7 +55,11 @@ Transfer learning then produced the strongest classification model. A frozen Ima
 
 ![Classification model progression](assets/classification_progress.svg)
 
-Fine-tuning the final Xception block increased trainable capacity without improving the predeclared selection metric, so the simpler frozen model was retained. Class-wise AP/ROC-AUC plots and deterministic final-holdout prediction examples are preserved in the [full experiment notebook](notebooks/full_experiment.ipynb).
+**Held-out prediction examples**
+
+![Classification predictions](assets/classification_examples.webp)
+
+Fine-tuning the final Xception block increased trainable capacity without improving the predeclared selection metric, so the simpler frozen model was retained. Class-wise AP/ROC-AUC plots and the full deterministic prediction audit are preserved in the [full experiment notebook](notebooks/full_experiment.ipynb).
 
 ## 2. Binary semantic segmentation
 
@@ -65,7 +69,11 @@ A baseline encoder-decoder was compared with a parameter-matched U-Net. Skip con
 
 ![Segmentation model progression](assets/segmentation_progress.svg)
 
-The per-image results show substantial heterogeneity: large objects are generally captured well, while thin structures, boundaries, and nearby foreground regions remain difficult at 128×128 resolution. The [full experiment notebook](notebooks/full_experiment.ipynb) includes the per-image IoU distribution together with source images, ground-truth masks, probability maps, thresholded predictions, and boundary overlays.
+**Held-out qualitative examples**
+
+![Segmentation predictions](assets/segmentation_examples.webp)
+
+The per-image results show substantial heterogeneity: large objects are generally captured well, while thin structures, boundaries, and nearby foreground regions remain difficult at 128×128 resolution. The [full experiment notebook](notebooks/full_experiment.ipynb) includes the complete per-image IoU distribution, probability maps, thresholded predictions, and boundary overlays.
 
 ## 3. Object detection
 
@@ -83,7 +91,11 @@ The best model was selected directly by internal-validation **mAP@0.50**, not by
 
 ![Detection model-selection summary](assets/detection_summary.svg)
 
-Objectness recall was much higher than precision, indicating a high false-positive burden. The main limitations were the coarse grid, small-object localisation, crowded scenes, and the limited detector head rather than the Xception feature extractor alone. Per-class AP comparisons and red-ground-truth/green-prediction examples are preserved in the [full experiment notebook](notebooks/full_experiment.ipynb).
+**Held-out detection examples — ground truth in red, predictions in green**
+
+![Detection predictions](assets/detection_examples.webp)
+
+Objectness recall was much higher than precision, indicating a high false-positive burden. The main limitations were the coarse grid, small-object localisation, crowded scenes, and the limited detector head rather than the Xception feature extractor alone. Per-class AP comparisons and the complete prediction analysis are preserved in the [full experiment notebook](notebooks/full_experiment.ipynb).
 
 Reusable implementations of the experiment's two-slot target encoding, class-aware NMS decoder, difficult-object handling, and continuous VOC AP@0.50 evaluation are available in [`src/voc_multitask/detection.py`](src/voc_multitask/detection.py).
 
@@ -127,13 +139,17 @@ Key safeguards:
 ├── assets/
 │   ├── project_overview.svg
 │   ├── classification_progress.svg
+│   ├── classification_examples.webp
 │   ├── segmentation_progress.svg
-│   └── detection_summary.svg
+│   ├── segmentation_examples.webp
+│   ├── detection_summary.svg
+│   └── detection_examples.webp
 ├── docs/
 │   ├── technical_report.md
 │   └── reproducibility.md
 ├── reports/
-│   └── README.md
+│   ├── README.md
+│   └── academic_project_report.pdf
 ├── tests/
 │   ├── test_data.py
 │   ├── test_detection.py
@@ -212,7 +228,7 @@ GitHub Actions runs the lightweight source compilation and unit-test suite on pu
 
 - Technical summary: [`docs/technical_report.md`](docs/technical_report.md)
 - Reproducibility record: [`docs/reproducibility.md`](docs/reproducibility.md)
-- Academic report archive: [`reports/`](reports/)
+- Academic project report: [`reports/academic_project_report.pdf`](reports/academic_project_report.pdf)
 - Dataset/project notice: [`NOTICE.md`](NOTICE.md)
 - Citation metadata: [`CITATION.cff`](CITATION.cff)
 
