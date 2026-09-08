@@ -4,7 +4,7 @@
 
 End-to-end deep learning experiments for **multi-label image classification**, **binary semantic segmentation**, and **20-class object detection** on PASCAL VOC2012 using TensorFlow/Keras.
 
-Developed as an MSc Artificial Neural Networks & Deep Learning project, this repository emphasizes not only model performance but also **controlled experimentation, leakage-safe model selection, reproducibility, and failure analysis**.
+Developed as an Artificial Neural Networks & Deep Learning project, this repository emphasizes not only model performance but also **controlled experimentation, leakage-safe model selection, reproducibility, and failure analysis**.
 
 ![Project overview](assets/project_overview.svg)
 
@@ -237,4 +237,4 @@ The complete executed analysis is available in [`notebooks/full_experiment.ipynb
 ## Author
 
 **Tanjim Hossain**  
-MSc Statistics & Data Science - Data Science track, Hasselt University
+MSc Statistics & Data Science - Data Science, Hasselt University, Belgium
