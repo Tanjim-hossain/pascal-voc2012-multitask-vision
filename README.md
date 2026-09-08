@@ -12,7 +12,7 @@ Developed as an MSc Artificial Neural Networks & Deep Learning project, this rep
 |---|---|
 | [`notebooks/full_experiment.ipynb`](notebooks/full_experiment.ipynb) | Complete executed experiment: data audits, model development, training history, final-holdout evaluation, and qualitative predictions for all three tasks |
 | [`notebooks/project_walkthrough.ipynb`](notebooks/project_walkthrough.ipynb) | Compact walkthrough of the locked protocol, selected architectures, and headline results |
-| [`src/voc_multitask/`](src/voc_multitask/) | Reusable data preparation, model-building, and evaluation utilities |
+| [`src/voc_multitask/`](src/voc_multitask/) | Reusable data preparation, model-building, detection, and evaluation utilities |
 | [`docs/technical_report.md`](docs/technical_report.md) | Concise methodology, comparisons, validity safeguards, limitations, and results record |
 
 The full notebook preserves the original end-to-end analysis and executed outputs. The smaller walkthrough and `src/` package provide faster entry points for code review and reuse.
@@ -81,6 +81,8 @@ The best model was selected directly by internal-validation **mAP@0.50**, not by
 
 Objectness recall was much higher than precision, indicating a high false-positive burden. The main limitations were the coarse grid, small-object localisation, crowded scenes, and the limited detector head rather than the Xception feature extractor alone. Per-class AP comparisons and red-ground-truth/green-prediction examples are preserved in the [full experiment notebook](notebooks/full_experiment.ipynb).
 
+Reusable implementations of the experiment's two-slot target encoding, class-aware NMS decoder, difficult-object handling, and continuous VOC AP@0.50 evaluation are available in [`src/voc_multitask/detection.py`](src/voc_multitask/detection.py).
+
 ## Experimental protocol
 
 | Task | Training | Internal validation | Final holdout |
@@ -113,6 +115,7 @@ Key safeguards:
 │   └── voc_multitask/
 │       ├── __init__.py
 │       ├── data.py
+│       ├── detection.py
 │       ├── metrics.py
 │       └── models.py
 ├── assets/
@@ -124,6 +127,7 @@ Key safeguards:
 │   └── technical_report.md
 ├── tests/
 │   ├── test_data.py
+│   ├── test_detection.py
 │   └── test_metrics.py
 └── .github/workflows/
     └── quality.yml
